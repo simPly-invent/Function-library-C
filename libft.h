@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:53:01 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/11 12:10:12 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 16:10:33 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-int	ft_lstsize(t_list *lst);
+int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /*    Clean name for different const value   */
 
@@ -90,8 +89,6 @@ void	*ft_calloc(size_t size_tab, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 /*---------------------------------------------------------------*/
-
-
 
 /*function for write number and character*/
 void	ft_putchar_fd(char c, int fd);
