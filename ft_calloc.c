@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:55:31 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 15:59:21 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 00:06:38 by mobenais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_calloc(size_t size_tab, size_t size)
 
 	if (!size_tab || !size)
 		return (NULL);
+	if (size && size_tab > SIZE_MAX / size)
+		return (NULL);
 	ptr = malloc(size_tab * size);
 	if (!ptr)
 		return (NULL);
@@ -27,15 +29,13 @@ void	*ft_calloc(size_t size_tab, size_t size)
 /*
 int main(void)
 {
-    size_t  nmemb = 4;
-    size_t  size = 4;
+    size_t  nmemb = 10000000000000;
+    size_t  size = 10000000000000;
     void    *ptr;
     unsigned char *byte_ptr;
     size_t  i;
 
-    // 🔹 Allocation avec calloc
     ptr = ft_calloc(nmemb, size);
-
     if (!ptr)
     {
         printf("Erreur : calloc a échoué !\n");
@@ -46,7 +46,6 @@ int main(void)
     nmemb, size, nmemb * size);
     printf("Adresse du bloc : %p\n", ptr);
 
-    // 🔹 Vérifier que tout est bien à zéro
     byte_ptr = (unsigned char *)ptr;
     for (i = 0; i < nmemb * size; i++)
     {
@@ -58,15 +57,10 @@ int main(void)
             return (1);
         }
     }
-
     printf("Nickel !!!!Tous les octets sont bien initialisés à 0.\n");
-
-    // Exddemple d'utilisation : convertir en int*
     int *tab = (int *)ptr;
-    printf("Contenu des 4 entiers : %d %d %d %d\n", tab[0], 
-    tab[1], tab[2], tab[3]);
-
-    // Libération
+    printf("Contenu des 4 entiers : %d %d %d %d\n", 
+    tab[0], tab[1], tab[2], tab[3]);
     free(ptr);
     printf("Mémoire libérée avec succès.\n");
 
