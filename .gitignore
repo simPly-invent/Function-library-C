@@ -1,4 +1,6 @@
 *.a
 *.o
+*.d
 *.out
 .obj/
+.dep/
