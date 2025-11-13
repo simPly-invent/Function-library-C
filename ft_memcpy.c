@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:58:26 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 18:23:45 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 01:59:13 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

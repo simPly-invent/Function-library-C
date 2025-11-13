@@ -6,23 +6,12 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:00:06 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 19:52:45 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:47:19 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-static size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = MIN_INT_DIGIT;
-	while (str[i])
-		i++;
-	return (i);
-}
-*/
+#include <stdlib.h>
 
 char	*ft_strdup(const char *str)
 {

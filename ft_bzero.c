@@ -6,10 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 21:12:56 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 18:09:49 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 22:54:54 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

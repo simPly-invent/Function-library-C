@@ -6,10 +6,11 @@
 /*   By: mohamed <mobenais@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 22:45:57 by mohamed           #+#    #+#             */
-/*   Updated: 2025/11/10 20:10:59 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:48:11 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static char	*ft_empty_str(void)

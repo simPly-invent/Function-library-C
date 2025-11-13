@@ -6,10 +6,13 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:55:31 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/12 00:06:38 by mobenais         ###   ########.fr       */
+/*   Updated: 2025/11/13 02:42:07 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t size_tab, size_t size)

@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:59:17 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/07 18:09:29 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:13:08 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {

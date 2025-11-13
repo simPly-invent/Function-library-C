@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:58:46 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/07 16:29:55 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 01:59:36 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

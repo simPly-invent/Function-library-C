@@ -6,10 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:07:34 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 20:39:50 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:43:58 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)

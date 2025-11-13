@@ -6,7 +6,7 @@
 #    By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 22:31:30 by mobenais          #+#    #+#              #
-#    Updated: 2025/11/11 18:00:24 by mobenais         ###   ########lyon.fr    #
+#    Updated: 2025/11/12 23:11:19 by mobenais         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ SRCS	= ft_atoi.c \
 		  ft_isdigit.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
-		  ft_memccpy.c \
 		  ft_memchr.c \
 		  ft_memcmp.c \
 		  ft_memcpy.c \

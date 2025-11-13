@@ -6,16 +6,14 @@
 /*   By: mohamed <mobenais@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 17:56:27 by mohamed           #+#    #+#             */
-/*   Updated: 2025/11/06 17:43:13 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:27:32 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_toupper(int ch)
 {
 	if (ch >= 'a' && ch <= 'z')
-		ch -= CONVERT_CASE;
+		ch -= 32;
 	return (ch);
 }
 /*
@@ -28,7 +26,6 @@ int main(void)
     printf("5 -> %c\n", ft_toupper('5'));  // doit rester 5
     printf("  -> %c\n", ft_toupper(' '));  // doit rester espace
     printf("+ -> %c\n", ft_toupper('+'));  // doit rester +
-    printf("é (0xE9) -> %c\n", ft_toupper(0xE9)); // hors ASCII : inchangé
     return 0;
 }
 */

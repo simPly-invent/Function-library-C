@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:57:51 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 20:09:03 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 01:58:03 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 static	int	len_nbr(int n)
 {

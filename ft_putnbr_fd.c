@@ -6,10 +6,12 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:31:44 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 20:12:11 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:46:24 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <limits.h>
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)

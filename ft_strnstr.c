@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:04:31 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 20:10:38 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:23:41 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {

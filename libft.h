@@ -6,23 +6,14 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:53:01 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/11 16:10:33 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:40:39 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-/* Include library for testing function or function that use malloc*/
-
-# include <unistd.h>
 # include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdint.h>
-# include <bsd/string.h>
-# include <limits.h>
 
 /*  BONUS PART  */
 
@@ -81,7 +72,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /* prototype for function that can copy character or bloc memory */
 void	*ft_memchr(const void *s, int c, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);

@@ -6,19 +6,14 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:56:15 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 18:13:47 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 01:56:34 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isalpha(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char)c;
-	if ((uc >= 'a' && uc <= 'z')
-		|| (uc >= 'A' && uc <= 'Z'))
+	if ((c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }

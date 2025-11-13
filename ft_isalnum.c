@@ -6,20 +6,15 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:55:59 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 18:13:37 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 01:56:46 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isalnum(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char)c;
-	if ((uc >= 'a' && uc <= 'z')
-		|| (uc >= 'A' && uc <= 'Z')
-		|| (uc >= '0' && uc <= '9'))
+	if ((c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z')
+		|| (c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }

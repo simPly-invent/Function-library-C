@@ -6,17 +6,12 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:20:55 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 17:41:02 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:47:43 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-
-char	test(unsigned int i, char j)
-{
-	j -= (char)i;
-	return (j);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

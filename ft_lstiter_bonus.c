@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:06:10 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/11 12:49:27 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 23:28:49 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*node;
-
-	node = lst;
-	while (node != NULL)
+	while (lst -> next != NULL)
 	{
-		f(node ->content);
-		node = node ->next;
+		f(lst ->content);
+		lst = lst ->next;
 	}
 }

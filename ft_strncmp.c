@@ -6,11 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:04:18 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 16:05:25 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:23:18 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 int	ft_strncmp(const char *src, const char *dest, size_t n)
 {

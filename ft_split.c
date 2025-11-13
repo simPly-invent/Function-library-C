@@ -6,10 +6,11 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:45:38 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 20:08:40 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:02:57 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static int	count_word(char const *s1, char c)

@@ -6,10 +6,13 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:54:32 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/10 20:10:05 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 02:41:22 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
+#include <stddef.h>
+#include <limits.h>
 
 static int	ft_is_space(char c)
 {

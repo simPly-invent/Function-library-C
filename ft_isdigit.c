@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:56:55 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/06 18:32:30 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 22:57:35 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	unsigned char	uc;
-
-	uc = (unsigned char)c;
-	if ((uc >= '0') && (uc <= '9'))
+	if ((c >= '0') && (c <= '9'))
 		return (1);
 	return (0);
 }
