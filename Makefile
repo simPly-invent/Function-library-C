@@ -6,12 +6,12 @@
 #    By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 22:31:30 by mobenais          #+#    #+#              #
-#    Updated: 2025/11/12 23:11:19 by mobenais         ###   ########lyon.fr    #
+#    Updated: 2025/11/13 15:12:28 by mobenais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Output
-NAME	= libft.a
+NAME		= libft.a
 
 
 # Commands
@@ -22,23 +22,23 @@ RM		= rm -rf
 # Flags
 
 CC		= cc
-CFLAGS	= -Wextra -Werror -Wall
-DFLAGS	= -MMD -MP -MF $(DEPDIR)/$*.d
-IFLAGS	= -I$(INCDIR)
+CFLAGS		= -Wextra -Werror -Wall
+DFLAGS		= -MMD -MP -MF $(DEPDIR)/$*.d
+IFLAGS		= -I$(INCDIR)
 
 CF		= $(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS)
 
 
 # Directories
 
-OBJDIR	= .obj
-DEPDIR	= .dep
-INCDIR	= include
+OBJDIR		= .obj
+DEPDIR		= .dep
+INCDIR		= include
 
 
 # Sources
 
-BONUS	= ft_lstadd_front.c \
+BONUS		= ft_lstadd_front.c \
 		  ft_lstlast.c \
 		  ft_lstnew.c \
 		  ft_lstsize.c \
@@ -47,9 +47,9 @@ BONUS	= ft_lstadd_front.c \
 		  ft_lstclear.c \
 		  ft_lstiter.c \
 		  ft_lstmap.c
-BONUS	:= $(BONUS:.c=_bonus.c)
+BONUS		:= $(BONUS:.c=_bonus.c)
 
-SRCS	= ft_atoi.c \
+SRCS		:= ft_atoi.c \
 		  ft_bzero.c \
 		  ft_calloc.c \
 		  ft_isalnum.c \
@@ -85,8 +85,8 @@ SRCS	= ft_atoi.c \
 		  ft_striteri.c
 
 
-OBJS	= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
-DEPS	= $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.c=.d)))
+OBJS		= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+DEPS		= $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.c=.d)))
 
 
 all: $(NAME)
