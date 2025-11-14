@@ -91,7 +91,7 @@ DEPS	= $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.c=.d)))
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): Makefile $(OBJS)
 	$(AR) $@ $^
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR) $(DEPDIR)

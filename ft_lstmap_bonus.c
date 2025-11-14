@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:50:10 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/11 13:46:36 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/14 11:19:02 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst != NULL)
 	{
 		tmp = f(lst ->content);
+		if (!tmp)
+		{
+			del(tmp);
+			ft_lstclear(lst, del);
+			return (NULL);
+		}
 		node = ft_lstnew(tmp);
 		if (!node)
 		{
