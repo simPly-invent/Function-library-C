@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:53:01 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/13 02:40:39 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/13 13:49:48 by mobenais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-/*    Clean name for different const value   */
-
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-# define SIZE_T_MAX 4294967295
-
-/*        Value ascii of whitespace           */
-
-# define MIN_VALUE_WHITESPACE 9
-# define MAX_VALUE_WHITESPACE 13
-# define SPACE ' '
-
-/*              convert case value            */
-
-# define CONVERT_CASE 32
 
 /* My functions */
 
