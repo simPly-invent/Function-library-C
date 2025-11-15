@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 10:43:49 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/13 02:49:32 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/15 18:36:23 by mobenais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,4 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 		return ;
 	del(lst -> content);
 	free(lst);
-	lst = NULL;
 }

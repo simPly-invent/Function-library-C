@@ -6,7 +6,7 @@
 /*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:55:31 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/13 02:42:07 by mobenais         ###   ########lyon.fr   */
+/*   Updated: 2025/11/15 18:33:08 by mobenais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@
 
 void	*ft_calloc(size_t size_tab, size_t size)
 {
-	void		*ptr;
+	char		*ptr;
 
 	if (!size_tab || !size)
-		return (NULL);
-	if (size && size_tab > SIZE_MAX / size)
+	{
+		ptr = malloc(sizeof(ptr));
+		ptr[0] = '\0';
+		if (!ptr)
+			return (NULL);
+		return (ptr);
+	}
+	if (size_tab > SIZE_MAX / size)
 		return (NULL);
 	ptr = malloc(size_tab * size);
 	if (!ptr)
