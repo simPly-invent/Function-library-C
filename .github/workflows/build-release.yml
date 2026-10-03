@@ -12,8 +12,11 @@ permissions:
 
 jobs:
   build:
-    name: Compile Libft & Publish Release
-    runs-on: ubuntu-latest
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - name: Checkout repository
@@ -30,12 +33,50 @@ jobs:
           make bonus
           ar -t libft.a
 
-      - name: Upload build artifact
+      - name: Package platform bundle
+        run: |
+          mkdir -p bundle/include bundle/lib
+          cp include/libft.h bundle/include/
+          cp libft.a bundle/lib/
+          tar -czf "libft-${{ runner.os }}-${{ runner.arch }}.tar.gz" -C bundle .
+
+      - name: Upload platform bundle artifact
         uses: actions/upload-artifact@v4
         with:
-          name: libft
-          path: libft.a
+          name: "bundle-${{ runner.os }}-${{ runner.arch }}"
+          path: "libft-${{ runner.os }}-${{ runner.arch }}.tar.gz"
           retention-days: 14
+
+  release:
+    name: Publish Release & Distribution Packages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+
+      - name: Prepare distribution packages
+        run: |
+          cd release-assets
+          # Default libft.tar.gz points to Linux-X64
+          if [ -f "libft-Linux-X64.tar.gz" ]; then
+            cp "libft-Linux-X64.tar.gz" "libft.tar.gz"
+            tar -xzf "libft-Linux-X64.tar.gz" ./lib/libft.a
+            mv lib/libft.a libft.a
+            rmdir lib 2>/dev/null || true
+          fi
+          # Also provide direct libft.h header file
+          cp ../include/libft.h .
+          ls -la
 
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
@@ -44,11 +85,18 @@ jobs:
           tag_name: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'latest' }}
           name: ${{ github.event_name == 'pull_request' && format('PR #{0} Build', github.event.pull_request.number) || 'Latest Build' }}
           body: |
-            ### Automated Libft Build
+            ### Automated Libft Distribution Bundle
             - **Trigger**: `${{ github.event_name }}`
             - **Commit**: `${{ github.sha }}`
             - **Branch**: `${{ github.head_ref || github.ref_name }}`
+
+            #### Available Packages:
+            - **`libft.tar.gz`**: Standard bundle (Linux x86_64) with `include/libft.h` & `lib/libft.a`
+            - **`libft-Linux-X64.tar.gz`**: Linux x86_64 distribution bundle
+            - **`libft-macOS-ARM64.tar.gz`**: macOS Apple Silicon distribution bundle
+            - **`libft.h`**: Standalone C header
+            - **`libft.a`**: Standalone precompiled static library (Linux x86_64)
           draft: false
           prerelease: ${{ github.event_name == 'pull_request' }}
-          files: libft.a
+          files: release-assets/*
         continue-on-error: true
