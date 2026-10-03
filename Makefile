@@ -6,7 +6,7 @@
 #    By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 22:31:30 by mobenais          #+#    #+#              #
-#    Updated: 2026/10/04 00:22:00 by tristan-gscn     ###   ########.fr        #
+#    Updated: 2026/10/04 00:28:00 by tristan-gscn     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,17 +39,6 @@ SRCDIR		= src
 
 # Sources
 
-BONUS		= ft_lstadd_front.c \
-		  ft_lstlast.c \
-		  ft_lstnew.c \
-		  ft_lstsize.c \
-		  ft_lstadd_back.c \
-		  ft_lstdelone.c \
-		  ft_lstclear.c \
-		  ft_lstiter.c \
-		  ft_lstmap.c
-BONUS		:= $(BONUS:.c=_bonus.c)
-
 SRCS		:= ft_atoi.c \
 		  ft_bzero.c \
 		  ft_calloc.c \
@@ -59,6 +48,15 @@ SRCS		:= ft_atoi.c \
 		  ft_isdigit.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
+		  ft_lstadd_back.c \
+		  ft_lstadd_front.c \
+		  ft_lstclear.c \
+		  ft_lstdelone.c \
+		  ft_lstiter.c \
+		  ft_lstlast.c \
+		  ft_lstmap.c \
+		  ft_lstnew.c \
+		  ft_lstsize.c \
 		  ft_memchr.c \
 		  ft_memcmp.c \
 		  ft_memcpy.c \
@@ -101,9 +99,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR) $(DEPDIR)
 $(OBJDIR) $(DEPDIR):
 	mkdir -p $@
 
-bonus:
-	$(MAKE) SRCS="$(SRCS) $(BONUS)"
-	
 clean:
 	$(RM) $(OBJDIR) $(DEPDIR)
 
@@ -112,6 +107,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
 -include $(DEPS)

@@ -28,9 +28,9 @@ jobs:
           ar -t libft.a
           make clean
 
-      - name: Build full library with bonus (make bonus)
+      - name: Build library (make)
         run: |
-          make bonus
+          make
           ar -t libft.a
 
       - name: Package platform bundle

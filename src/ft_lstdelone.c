@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 20:37:56 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/13 02:48:52 by mobenais         ###   ########lyon.fr   */
+/*   Created: 2025/11/11 10:43:49 by mobenais          #+#    #+#             */
+/*   Updated: 2025/11/15 18:36:23 by mobenais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*node;
-
-	node = malloc(sizeof(*node));
-	if (!node)
-		return (NULL);
-	node -> content = content;
-	node -> next = NULL;
-	return (node);
+	if (!del || !lst)
+		return ;
+	del(lst -> content);
+	free(lst);
 }

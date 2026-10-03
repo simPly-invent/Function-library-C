@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstiter.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 10:43:49 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/15 18:36:23 by mobenais         ###   ########.fr       */
+/*   Created: 2025/11/11 12:06:10 by mobenais          #+#    #+#             */
+/*   Updated: 2025/11/13 03:09:19 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!del || !lst)
+	if (!lst || !f)
 		return ;
-	del(lst -> content);
-	free(lst);
+	while (lst)
+	{
+		f(lst ->content);
+		lst = lst ->next;
+	}
 }

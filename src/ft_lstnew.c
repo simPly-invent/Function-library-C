@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mobenais <mobenais@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 12:06:10 by mobenais          #+#    #+#             */
-/*   Updated: 2025/11/13 03:09:19 by mobenais         ###   ########lyon.fr   */
+/*   Created: 2025/10/30 20:37:56 by mobenais          #+#    #+#             */
+/*   Updated: 2025/11/13 02:48:52 by mobenais         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstnew(void *content)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst ->content);
-		lst = lst ->next;
-	}
+	t_list	*node;
+
+	node = malloc(sizeof(*node));
+	if (!node)
+		return (NULL);
+	node -> content = content;
+	node -> next = NULL;
+	return (node);
 }
