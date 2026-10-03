@@ -6,34 +6,51 @@
 #    By: mobenais <mobenais@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/23 22:31:30 by mobenais          #+#    #+#              #
-#    Updated: 2026/10/03 22:45:00 by tristan-gscn     ###   ########.fr        #
+#    Updated: 2026/10/04 00:22:00 by tristan-gscn     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Output
 NAME		= libft.a
 
+
 # Commands
-CC		= cc
-CFLAGS		= -Wall -Wextra -Werror
-DFLAGS		= -MMD -MP
 AR		= ar -rcs
 RM		= rm -rf
-MKDIR		= mkdir -p
 
-# Directories
-INCDIR		= include
-SRCDIR		= src
-MANDATORY_DIR	= $(SRCDIR)/mandatory
-BONUS_DIR	= $(SRCDIR)/bonus
-OBJDIR		= .obj
-DEPDIR		= .dep
 
+# Flags
+
+CC		= cc
+CFLAGS		= -Wextra -Werror -Wall
+DFLAGS		= -MMD -MP -MF $(DEPDIR)/$*.d
 IFLAGS		= -I$(INCDIR)
+
 CF		= $(CC) $(CFLAGS) $(DFLAGS) $(IFLAGS)
 
+
+# Directories
+
+OBJDIR		= .obj
+DEPDIR		= .dep
+INCDIR		= include
+SRCDIR		= src
+
+
 # Sources
-MANDATORY_SRCS	= ft_atoi.c \
+
+BONUS		= ft_lstadd_front.c \
+		  ft_lstlast.c \
+		  ft_lstnew.c \
+		  ft_lstsize.c \
+		  ft_lstadd_back.c \
+		  ft_lstdelone.c \
+		  ft_lstclear.c \
+		  ft_lstiter.c \
+		  ft_lstmap.c
+BONUS		:= $(BONUS:.c=_bonus.c)
+
+SRCS		:= ft_atoi.c \
 		  ft_bzero.c \
 		  ft_calloc.c \
 		  ft_isalnum.c \
@@ -54,7 +71,6 @@ MANDATORY_SRCS	= ft_atoi.c \
 		  ft_split.c \
 		  ft_strchr.c \
 		  ft_strdup.c \
-		  ft_striteri.c \
 		  ft_strjoin.c \
 		  ft_strlcat.c \
 		  ft_strlcpy.c \
@@ -66,46 +82,28 @@ MANDATORY_SRCS	= ft_atoi.c \
 		  ft_strtrim.c \
 		  ft_substr.c \
 		  ft_tolower.c \
-		  ft_toupper.c
+		  ft_toupper.c \
+		  ft_striteri.c
 
-BONUS_SRCS	= ft_lstadd_back_bonus.c \
-		  ft_lstadd_front_bonus.c \
-		  ft_lstclear_bonus.c \
-		  ft_lstdelone_bonus.c \
-		  ft_lstiter_bonus.c \
-		  ft_lstlast_bonus.c \
-		  ft_lstmap_bonus.c \
-		  ft_lstnew_bonus.c \
-		  ft_lstsize_bonus.c
 
-# Objects and Dependencies
-MANDATORY_OBJS	= $(addprefix $(OBJDIR)/mandatory/, $(MANDATORY_SRCS:.c=.o))
-MANDATORY_DEPS	= $(addprefix $(DEPDIR)/mandatory/, $(MANDATORY_SRCS:.c=.d))
+OBJS		= $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.c=.o)))
+DEPS		= $(addprefix $(DEPDIR)/, $(notdir $(SRCS:.c=.d)))
 
-BONUS_OBJS	= $(addprefix $(OBJDIR)/bonus/, $(BONUS_SRCS:.c=.o))
-BONUS_DEPS	= $(addprefix $(DEPDIR)/bonus/, $(BONUS_SRCS:.c=.d))
 
-# Rules
 all: $(NAME)
 
-$(NAME): $(MANDATORY_OBJS)
-	$(AR) $@ $^
+$(NAME): $(OBJS)
+	$(AR) $@ $(OBJS)
 
-bonus: $(OBJDIR)/.bonus
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR) $(DEPDIR)
+	$(CF) -c $< -o $@
 
-$(OBJDIR)/.bonus: $(MANDATORY_OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $^
-	@touch $@
+$(OBJDIR) $(DEPDIR):
+	mkdir -p $@
 
-$(OBJDIR)/mandatory/%.o: $(MANDATORY_DIR)/%.c | $(OBJDIR)/mandatory $(DEPDIR)/mandatory
-	$(CF) -MF $(DEPDIR)/mandatory/$*.d -c $< -o $@
-
-$(OBJDIR)/bonus/%.o: $(BONUS_DIR)/%.c | $(OBJDIR)/bonus $(DEPDIR)/bonus
-	$(CF) -MF $(DEPDIR)/bonus/$*.d -c $< -o $@
-
-$(OBJDIR)/mandatory $(OBJDIR)/bonus $(DEPDIR)/mandatory $(DEPDIR)/bonus:
-	$(MKDIR) $@
-
+bonus:
+	$(MAKE) SRCS="$(SRCS) $(BONUS)"
+	
 clean:
 	$(RM) $(OBJDIR) $(DEPDIR)
 
@@ -114,7 +112,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re bonus
 
--include $(MANDATORY_DEPS)
--include $(BONUS_DEPS)
+-include $(DEPS)
