@@ -1,0 +1,54 @@
+name: Build & Release
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Compile Libft & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify compilation (make all & make clean)
+        run: |
+          make all
+          ar -t libft.a
+          make clean
+
+      - name: Build full library with bonus (make bonus)
+        run: |
+          make bonus
+          ar -t libft.a
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: libft
+          path: libft.a
+          retention-days: 14
+
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        if: ${{ success() }}
+        with:
+          tag_name: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'latest' }}
+          name: ${{ github.event_name == 'pull_request' && format('PR #{0} Build', github.event.pull_request.number) || 'Latest Build' }}
+          body: |
+            ### Automated Libft Build
+            - **Trigger**: `${{ github.event_name }}`
+            - **Commit**: `${{ github.sha }}`
+            - **Branch**: `${{ github.head_ref || github.ref_name }}`
+          draft: false
+          prerelease: ${{ github.event_name == 'pull_request' }}
+          files: libft.a
+        continue-on-error: true
