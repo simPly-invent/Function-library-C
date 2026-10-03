@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-/*  BONUS PART  */
+/* Linked list functions */
 
 typedef struct s_list
 {

@@ -1,8 +1,12 @@
+# Object and dependency directories
+.obj/
+.dep/
+
+# Binaries and libraries
 *.a
 *.o
 *.d
 *.out
-.obj/
-.dep/
-.gitignore
-.git
+
+# OS generated files
+.DS_Store
