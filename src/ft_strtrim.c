@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = ft_strlen(s1);
 	while (s1[i] && check_chr(s1[i], set))
 		i++;
-	while (s1[j] >= 0 && check_chr(s1[j - 1], set))
+	while (check_chr(s1[j - 1], set))
 		j--;
 	ptr = ft_substr(s1, i, j - i);
 	return (ptr);
